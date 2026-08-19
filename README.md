@@ -2,9 +2,6 @@
 
 A full-stack, RAG-powered medical chatbot with an agentic triage workflow, multimodal (image/document) analysis, evaluated retrieval quality, and multilingual support — built end-to-end with FastAPI, React, LangChain, and LangGraph.
 
-**Live demo:** `<your-vercel-url-here>`
-**Backend API docs:** `<your-render-url-here>/docs`
-
 ---
 
 ## Table of Contents
