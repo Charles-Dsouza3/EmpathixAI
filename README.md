@@ -161,7 +161,27 @@ friendly-medbot/
 │   │   ├── api/client.js
 │   │   ├── firebase.js
 │   │   └── i18n.js
-│   └── ...
+│   │   ├── api/
+│   │   │   └── client.js
+│   │   ├── components/
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── ChatWindow.jsx
+│   │   │   ├── MessageList.jsx
+│   │   │   ├── MessageBubble.jsx
+│   │   │   ├── InputBox.jsx
+│   │   │   ├── EcgTrace.jsx
+│   │   │   ├── ThemeSwitcher.jsx
+│   │   │   ├── LanguageSwitcher.jsx
+│   │   │   └── AuthModal.jsx
+│   │   └── hooks/
+│   │       ├── useChat.js
+│   │       ├── useTheme.jsx
+│   │       └── useAuth.jsx
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   ├── .env.example
+│   └── .gitignore
 │
 └── README.md
 ```
