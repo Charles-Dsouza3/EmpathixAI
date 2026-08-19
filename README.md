@@ -229,13 +229,6 @@ pytest --cov=app --cov-report=term-missing   # with coverage
 
 LLM calls are mocked in the test suite — tests validate application logic (routing, DB writes, error handling), not third-party API availability, and run in seconds with no network calls.
 
-## Deployment
-
-- **Frontend:** deployed on Vercel, auto-deploying from `main`
-- **Backend:** deployed on Render as a free-tier web service
-
-**Known free-tier behavior:** the Render backend spins down after 15 minutes of inactivity and takes 30–60 seconds to wake on the next request. In a production setting this would run on an always-on instance.
-
 ## Design Decisions Worth Knowing
 
 - **Emergency and off-topic responses are template-based, not LLM-generated** — a deliberate safety choice; an LLM should not improvise instructions for a medical emergency.
@@ -245,7 +238,6 @@ LLM calls are mocked in the test suite — tests validate application logic (rou
 
 ## Known Limitations
 
-- Free-tier hosting introduces cold-start latency on the backend.
 - SQLite and local file storage are not persistent across redeploys on free hosting tiers.
 - Hugging Face's free inference quota is limited; heavy usage may hit rate limits.
 - This is an informational tool, not a diagnostic one — it is not a substitute for professional medical care, and it says so throughout the interface.
