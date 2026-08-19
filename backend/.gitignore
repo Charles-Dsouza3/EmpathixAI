@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+chat_history.db
+uploads/
+vectorstore/
+firebase-service-account.json
+tests/.pytest_cache
+evaluation/checkpoint.json
+evaluation/results.csv

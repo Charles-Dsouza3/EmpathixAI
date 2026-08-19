@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What are the common symptoms of a cold?",
+    "ground_truth": "Common cold symptoms include a runny or stuffy nose, sneezing, sore throat, mild cough, and sometimes a low-grade fever or headache."
+  },
+  {
+    "question": "What is the best way to plan a birthday party?",
+    "ground_truth": "This question is unrelated to medical topics and the assistant should note that it falls outside its scope of medical reference material."
+  },
+  {
+    "question": "How is the common cold treated?",
+    "ground_truth": "Treatment focuses on symptom relief, including hydration, rest, over-the-counter pain relievers, and saline nasal drops or decongestants. Antibiotics should not be used."
+  },
+  
+  {
+    "question": "What are the symptoms of influenza?",
+    "ground_truth": "Symptoms include high fever or chills, severe muscle or body aches, pronounced fatigue, dry persistent cough, headaches, sore throat, and a runny or stuffy nose."
+  },
+  {
+    "question": "What medications are used to treat the flu?",
+    "ground_truth": "Prescription antiviral drugs, such as Oseltamivir (Tamiflu), can lessen symptoms and shorten the illness if started within 48 hours of symptom onset. Over-the-counter pain relievers can also be used for fever and aches."
+  },
+  {
+    "question": "When is influenza considered a medical emergency?",
+    "ground_truth": "Emergency care is required for difficulty breathing, persistent chest or abdominal pain/pressure, persistent dizziness, confusion, seizures, or severe muscle weakness."
+  },
+  {
+    "question": "What is the difference between a tension headache and a migraine?",
+    "ground_truth": "A tension headache presents as a constant, dull ache (like a tight band) on both sides of the head. A migraine is a severe throbbing pain, usually on one side, often accompanied by nausea, vomiting, and extreme sensitivity to light and sound."
+  },
+  {
+    "question": "How do you treat a tension headache?",
+    "ground_truth": "Tension headaches generally respond well to over-the-counter pain relievers, stress management, and applying a hot or cold pack to the head or neck."
+  },
+  {
+    "question": "How is bacterial pink eye treated?",
+    "ground_truth": "Bacterial conjunctivitis requires a prescription for antibiotic eye drops or ointments."
+  },
+  {
+    "question": "When should I see a doctor for conjunctivitis?",
+    "ground_truth": "Consult an eye care specialist if you experience moderate to severe eye pain, intense sensitivity to light, blurred vision that does not improve when discharge is wiped away, or if symptoms don't improve after 24 hours of starting antibiotics."
+  },
+  {
+    "question": "What is a first-degree burn?",
+    "ground_truth": "A first-degree burn is a superficial thermal injury that affects only the outermost layer of the skin (the epidermis). Symptoms include redness, mild pain, minor swelling, and dry peeling skin without blisters."
+  }
+]
