@@ -98,11 +98,10 @@ Image uploads route separately to a vision model
 | Vector Store | ChromaDB |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) |
 | Database | SQLite |
-| Auth | Firebase Authentication (Google, Email, Phone) |
+| Auth | Firebase Authentication (Google, Email) |
 | Evaluation | RAGAS |
 | Observability | Structured JSON logging, LangSmith tracing |
 | Testing | pytest, httpx |
-| Deployment | Vercel (frontend), Render (backend) |
 
 ## The Agentic Triage Workflow
 
