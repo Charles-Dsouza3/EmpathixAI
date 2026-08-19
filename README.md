@@ -79,7 +79,7 @@ Image uploads route separately to a vision model
 - **Agentic triage workflow (LangGraph)** — every message is classified as `emergency`, `routine`, or `non_medical` before a response is generated, with the emergency path using a deterministic, non-LLM-generated safety message
 - **Multimodal analysis** — upload an image (photo of a symptom, rash, etc.) for vision-model analysis, or a PDF/DOCX/TXT document for text-extraction-grounded Q&A
 - **RAG evaluation pipeline** using RAGAS, scoring faithfulness, answer relevancy, context precision, and context recall against a labeled test set
-- **Authentication** via Firebase — Google OAuth, email/password, and phone OTP
+- **Authentication** via Firebase — Google OAuth and email/password.
 - **Multilingual support** — full UI and LLM response localization (English/Hindi), with the LLM instructed to respond in the selected language
 - **Theme switcher** — three distinct visual themes (light clinical, dark "Midnight Ward", warm "Apothecary"), built on CSS custom properties for instant, zero-reload switching
 - **Structured JSON logging** and **LangSmith tracing** for full request/LLM-call observability
