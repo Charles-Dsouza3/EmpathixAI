@@ -9,9 +9,6 @@ from app.config import settings
 from app.database import init_db
 from app.logging_config import setup_logging, get_logger
 from app.routers import sessions, chat
-import os
-os.makedirs(settings.upload_dir, exist_ok=True)
-app.mount("/uploads", StaticFiles(directory=settings.upload_dir), name="uploads")
 
 setup_logging(settings.log_level)
 logger = get_logger("empathixai.request")
