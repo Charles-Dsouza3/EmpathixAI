@@ -43,15 +43,15 @@ export default function Sidebar({
                      hover:bg-sage/20 text-sage-dark font-mono text-xs tracking-wide
                      uppercase py-2 transition-colors"
         >
-          {t("newChart")}
+          {t("newChat")}
         </button>
 
         <div className="flex-1 overflow-y-auto px-3 pb-4 mt-2 space-y-1">
           {loading && (
-            <p className="px-2 py-4 text-xs font-mono text-ink/40">{t("loadingCharts")}</p>
+            <p className="px-2 py-4 text-xs font-mono text-ink/40">{t("loadingChats")}</p>
           )}
           {!loading && sessions.length === 0 && (
-            <p className="px-2 py-4 text-xs font-mono text-ink/40">{t("noChartsYet")}</p>
+            <p className="px-2 py-4 text-xs font-mono text-ink/40">{t("noChatsYet")}</p>
           )}
           {sessions.map((s) => {
             const isActive = s.id === activeSessionId;
@@ -84,7 +84,7 @@ export default function Sidebar({
                     e.stopPropagation();
                     onDelete(s.id);
                   }}
-                  aria-label={`Delete chart: ${s.title}`}
+                  aria-label={`Delete chat: ${s.title}`}
                   className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100
                              px-2 text-ink/30 hover:text-pulse transition-opacity font-mono text-xs"
                 >
