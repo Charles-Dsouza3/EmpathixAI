@@ -32,6 +32,9 @@ def send_message(payload: ChatRequest, request: Request, db: DBSession = Depends
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
+    history = _build_history(db, payload.session_id)
+    crud.add_message(db, payload.session_id, "user", payload.message)
+
     try:
         result = run_triage(payload.session_id, payload.message, history, payload.language)
     except Exception as e:
