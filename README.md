@@ -244,6 +244,6 @@ LLM calls are mocked in the test suite — tests validate application logic (rou
 - Hugging Face's free inference quota is limited; heavy usage may hit rate limits.
 - This is an informational tool, not a diagnostic one — it is not a substitute for professional medical care, and it says so throughout the interface.
 
-## License
+## 📄 License
 
-MIT
+This project is licensed under the MIT License - see the LICENSE file for details.
