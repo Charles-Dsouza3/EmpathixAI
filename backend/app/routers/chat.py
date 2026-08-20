@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
-from fastapi import Request
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Request
 from sqlalchemy.orm import Session as DBSession
 from langchain_core.messages import HumanMessage, AIMessage
 
@@ -10,6 +9,7 @@ from app.llm import generate_vision_reply
 from app.prompts import build_system_prompt
 from app.attachments import save_upload, extract_document_text, image_to_data_url, get_full_path
 from app.agent import run_triage
+from app.auth import get_current_identity
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
