@@ -4,9 +4,10 @@ from sqlalchemy.orm import Session as DBSession
 from app.database import ChatSession, ChatMessage
 
 
-def create_session(db: DBSession, title: str | None = None) -> ChatSession:
+def create_session(db: DBSession, user_id: str, title: str | None = None) -> ChatSession:
     session = ChatSession(
         id=uuid.uuid4().hex,
+        user_id=user_id,
         title=title or "New Chat",
     )
     db.add(session)
@@ -15,16 +16,25 @@ def create_session(db: DBSession, title: str | None = None) -> ChatSession:
     return session
 
 
-def get_session(db: DBSession, session_id: str) -> ChatSession | None:
-    return db.query(ChatSession).filter(ChatSession.id == session_id).first()
+def get_session(db: DBSession, session_id: str, user_id: str) -> ChatSession | None:
+    return (
+        db.query(ChatSession)
+        .filter(ChatSession.id == session_id, ChatSession.user_id == user_id)
+        .first()
+    )
 
 
-def list_sessions(db: DBSession) -> list[ChatSession]:
-    return db.query(ChatSession).order_by(ChatSession.updated_at.desc()).all()
+def list_sessions(db: DBSession, user_id: str) -> list[ChatSession]:
+    return (
+        db.query(ChatSession)
+        .filter(ChatSession.user_id == user_id)
+        .order_by(ChatSession.updated_at.desc())
+        .all()
+    )
 
 
-def delete_session(db: DBSession, session_id: str) -> bool:
-    session = get_session(db, session_id)
+def delete_session(db: DBSession, session_id: str, user_id: str) -> bool:
+    session = get_session(db, session_id, user_id)
     if not session:
         return False
     db.delete(session)
@@ -41,8 +51,7 @@ def add_message(db: DBSession, session_id: str, role: str, content: str) -> Chat
     )
     db.add(message)
 
-    # Auto-title the session from the first user message
-    session = get_session(db, session_id)
+    session = db.query(ChatSession).filter(ChatSession.id == session_id).first()
     if session and session.title == "New Chat" and role == "user":
         session.title = content[:50] + ("..." if len(content) > 50 else "")
 
