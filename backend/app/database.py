@@ -34,7 +34,8 @@ def utcnow():
 class ChatSession(Base):
     __tablename__ = "chat_sessions"
 
-    id = Column(String, primary_key=True)  # uuid4 hex string
+    id = Column(String, primary_key=True)
+    user_id = Column(String, nullable=False, index=True)
     title = Column(String, default="New Chat")
     created_at = Column(DateTime, default=utcnow)
     updated_at = Column(DateTime, default=utcnow, onupdate=utcnow)
