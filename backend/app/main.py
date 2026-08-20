@@ -1,9 +1,9 @@
 import time
 import uuid
+import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
 
 from app.config import settings
 from app.database import init_db
@@ -12,6 +12,10 @@ from app.routers import sessions, chat
 
 setup_logging(settings.log_level)
 logger = get_logger("empathixai.request")
+
+# Must happen before StaticFiles mount below — that mount validates the
+# directory exists at import time, which runs before any startup event.
+os.makedirs(settings.upload_dir, exist_ok=True)
 
 app = FastAPI(title="EmpathixAI", version="0.1.0")
 
@@ -49,7 +53,6 @@ async def log_requests(request: Request, call_next):
 @app.on_event("startup")
 def on_startup():
     init_db()
-    os.makedirs(settings.upload_dir, exist_ok=True)
     logger.info("startup_complete", extra={"upload_dir": settings.upload_dir})
 
 
