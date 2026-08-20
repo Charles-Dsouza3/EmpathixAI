@@ -14,7 +14,7 @@ const resources = {
       startNewChart: "Start a new chat to begin",
       chartEmpty: "Chat is empty",
       chartEmptyDesc: "Describe what's on your mind — symptoms, a question about a condition, or something you read and want checked. EmpathixAI will note it here.",
-      reviewingChart: "Reviewing chat…",
+      reviewingChart: "Thinking…",
       inputPlaceholder: "Note your symptoms or question…",
       logEntry: "Log entry",
       inputHint: "Enter to send · Shift + Enter for a new line · Informational only, not a substitute for professional care.",
@@ -28,7 +28,7 @@ const resources = {
     translation: {
       appName: "एम्पैथिक्सएआई",
       patientRecord: "रोगी रिकॉर्ड",
-      newChart: "+ नई चैट",                  // was "+ नया चार्ट"
+      newChart: "+ नई चैट",
       loadingCharts: "चैट लोड हो रही हैं…",
       noChartsYet: "अभी तक कोई चैट नहीं। ऊपर से एक नई शुरू करें।",
       activeChart: "सक्रिय चैट",
