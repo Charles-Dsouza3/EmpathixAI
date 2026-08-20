@@ -14,8 +14,8 @@ export default function MessageList({ messages, loadingReply }) {
     return (
       <div className="flex-1 flex items-center justify-center px-8">
         <div className="max-w-sm text-center">
-          <p className="font-display text-lg text-ink/70 mb-2">{t("chartEmpty")}</p>
-          <p className="font-mono text-xs text-ink/40 leading-relaxed">{t("chartEmptyDesc")}</p>
+          <p className="font-display text-lg text-ink/70 mb-2">{t("chatEmpty")}</p>
+          <p className="font-mono text-xs text-ink/40 leading-relaxed">{t("chatEmptyDesc")}</p>
         </div>
       </div>
     );
@@ -31,7 +31,7 @@ export default function MessageList({ messages, loadingReply }) {
           <p className="font-mono text-[10px] uppercase tracking-widest text-mist mb-1.5">
             EmpathixAI
           </p>
-          <p className="font-mono text-xs text-ink/40 animate-pulse">{t("reviewingChart")}</p>
+          <p className="font-mono text-xs text-ink/40 animate-pulse">{t("reviewingChat")}</p>
         </div>
       )}
       <div ref={bottomRef} />
