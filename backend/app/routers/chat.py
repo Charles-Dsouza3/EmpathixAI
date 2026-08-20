@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from fastapi import Request
 from sqlalchemy.orm import Session as DBSession
 from langchain_core.messages import HumanMessage, AIMessage
 
@@ -25,13 +26,11 @@ def _build_history(db, session_id):
 
 
 @router.post("", response_model=ChatResponse)
-def send_message(payload: ChatRequest, db: DBSession = Depends(get_db)):
-    session = crud.get_session(db, payload.session_id)
+def send_message(payload: ChatRequest, request: Request, db: DBSession = Depends(get_db)):
+    user_id = get_current_identity(request)
+    session = crud.get_session(db, payload.session_id, user_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-
-    history = _build_history(db, payload.session_id)
-    crud.add_message(db, payload.session_id, "user", payload.message)
 
     try:
         result = run_triage(payload.session_id, payload.message, history, payload.language)
@@ -50,13 +49,15 @@ def send_message(payload: ChatRequest, db: DBSession = Depends(get_db)):
 
 @router.post("/upload", response_model=ChatResponse)
 async def send_message_with_attachment(
+    request: Request,
     session_id: str = Form(...),
     message: str = Form(""),
     language: str = Form("en"),
     file: UploadFile = File(...),
     db: DBSession = Depends(get_db),
 ):
-    session = crud.get_session(db, session_id)
+    user_id = get_current_identity(request)
+    session = crud.get_session(db, session_id, user_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
