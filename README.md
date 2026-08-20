@@ -2,7 +2,8 @@
 
 A full-stack, RAG-powered medical chatbot with an agentic triage workflow, multimodal (image/document) analysis, evaluated retrieval quality, and multilingual support — built end-to-end with FastAPI, React, LangChain, and LangGraph.
 
-*Live demo:* <https://empathix-ai.vercel.app/> (only frontend is deployed, backend deployment in progress)
+*Live demo:* <https://empathix-ai.vercel.app/>
+*Backend API docs:* <https://empathixai-1.onrender.com/docs>
 
 ---
 
@@ -101,6 +102,7 @@ Image uploads route separately to a vision model
 | Evaluation | RAGAS |
 | Observability | Structured JSON logging, LangSmith tracing |
 | Testing | pytest, httpx |
+| Deployment | Vercel (frontend), Render (backend) |
 
 ## The Agentic Triage Workflow
 
@@ -230,6 +232,13 @@ pytest --cov=app --cov-report=term-missing   # with coverage
 ```
 
 LLM calls are mocked in the test suite — tests validate application logic (routing, DB writes, error handling), not third-party API availability, and run in seconds with no network calls.
+
+## Deployment
+
+- *Frontend:* deployed on Vercel, auto-deploying from main
+- *Backend:* deployed on Render as a free-tier web service
+
+*Known free-tier behavior:* the Render backend spins down after 15 minutes of inactivity and takes 30–60 seconds to wake on the next request. In a production setting this would run on an always-on instance.
 
 ## Design Decisions Worth Knowing
 
