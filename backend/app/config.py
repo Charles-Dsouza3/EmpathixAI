@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     max_upload_size_mb: int = 10
     vision_model_repo_id: str = "google/gemma-3-27b-it"
 
+    firebase_credentials_path: str = ""
+    firebase_credentials_json: str = ""
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     @property
