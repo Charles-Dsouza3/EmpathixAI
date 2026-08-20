@@ -13,17 +13,17 @@ export default function ChatWindow({ session, messages, loadingReply, onSend, er
       <header className="border-b border-hairline px-4 sm:px-10 py-4 flex items-center justify-between gap-4">
         <button
           onClick={onOpenSidebar}
-          aria-label="Open chart list"
+          aria-label="Open chat list"
           className="sm:hidden font-mono text-xs border border-hairline rounded-sm px-2 py-1"
         >
           ☰
         </button>
         <div className="min-w-0 flex-1">
           <p className="font-mono text-[10px] uppercase tracking-widest text-mist">
-            {session ? t("activeChart") : t("noChartSelected")}
+            {session ? t("activeChat") : t("noChatSelected")}
           </p>
           <h2 className="font-display text-lg font-semibold text-ink truncate">
-            {session ? session.title : t("startNewChart")}
+            {session ? session.title : t("startNewChat")}
           </h2>
         </div>
         <div className="hidden sm:block">
